@@ -1,0 +1,95 @@
+
+{{>navBar}}
+<h1>PRODUCTS' LISTS</h1>
+<div class="card mb-3 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 940px;">
+  <div class="row g-0">
+    <div class="col-md-6">
+    <h5 class="card-title ">Organiza el producto</h5>
+      <form action="/newProduct" method="POST">
+        <label for="exampleFormControlInput1" class="form-label " >Selecciona el producto:</label>
+        <select class="form-select form-select-lg mb-3" 
+                aria-label=".form-select-lg example" 
+                name="productName">
+            <option selected>...</option>
+            <option value="Agenda">Agenda</option>
+            <option value="Vela">Vela</option>
+            <option value="Separador">Separador</option>
+        </select>
+        <label for="exampleFormControlInput1" class="form-label">Selecciona el tipo de producto:</label>
+        <select class="form-select form-select-sm" 
+            aria-label=".form-select-sm example"
+            name="productType">
+            <option selected>Escoge el Tipo</option>
+            <option value="verde">Verde</option>
+            <option value="blanca">Blanca</option>
+            <option value="rosada">Rosada</option>
+        </select>
+        {{!-- price --}}
+        <label for="exampleFormControlInput1" class="form-label">
+                Inserta el Precio <strong>sin puntos, comas o signos:</strong> </label>
+            <input type="text" class="form-control" name="price"></input>
+        {{!-- quantity bought --}}
+         <label for="exampleFormControlInput1" class="form-label">
+                Inserta cuantas agendas compró <strong>sin puntos, comas o signos:</strong></label>
+            <input type="text" class="form-control" name="quantityBought"></input>
+    </div>
+    <div class="col-md-6">
+        <div class="card-body">
+            {{!-- buyer --}}
+            <label for="exampleFormControlInput1" class="form-label">
+                Inserta el nombre del comprador:</label>
+            <input type="text" class="form-control" name="buyer"></input>
+
+                {{!-- checkbox paymentStatus --}}
+
+            <label for="exampleFormControlInput1" class="form-label">
+                Ya pagó?</label>
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="paymentStatus" 
+                id="flexRadioDefault3"
+                value="si">
+                <label class="form-check-label" for="flexRadioDefault3">
+                si
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="paymentStatus" 
+                id="flexRadioDefault4"
+                value="no">
+                <label class="form-check-label" for="flexRadioDefault4">
+                no
+                </label>
+            </div>
+           {{!-- checkbox de deliverStatus --}}
+            <label for="exampleFormControlInput1" class="form-label">
+                Ya se entregó?</label>
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="deliverStatus" 
+                id="flexRadioDefault5"
+                value="si">
+                <label class="form-check-label" for="flexRadioDefault5">
+                si
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" 
+                type="radio" 
+                name="deliverStatus" 
+                id="flexRadioDefault6"
+                value="no">
+                <label class="form-check-label" for="flexRadioDefault6">
+                no
+                </label>
+            </div>
+        <button type="submit" class="btn btn-primary">Crear Registro</button>
+      </div>
+    </div>
+      </form>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+
+{{>navBar}}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Comprador</th>
+      <th scope="col">Ya pagó?</th>
+      <th scope="col">Ya se entregó?</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <th scope="row">{{ productName }}</th>
+      <td>{{ productType }}</td>
+      <td>{{ price }}</td>
+      <td>{{ buyer }}</td>
+      <td>{{ paymentStatus }}</td>
+      <td>{{ deliverStatus }}</td>
+      <td>{{quantityBought}}</td>
+      <td>
+
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ Eliminar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">¿ESTÁS SEGURA DE ESTO ELIANA?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ELIANA, DA CLICK EN ELIMINAR SOLO SI ESTÁS SEGURA DE QUERER BORRAR EL REGISTRO DE: {{ buyer }} 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <form action="/products/{{_id}}?_method=DELETE" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+        <button class="btn btn-danger" type="submit">ELIMINAR</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+      <a href="/editproduct/{{_id}}"><button class="btn btn-primary btn-sm" type="submit">Edit</button></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td><strong>Total Recaudado</strong> </td>
+      <td>${{pricesPaid}}</td>
+      <td><strong>Total Adeudado</strong> </td>
+      <td>${{pricesUnpaid}}</td>
+      <td><strong>Total Vendidas: </strong> </td>
+      <td>{{totalSale}}</td>
+    </tr>
+  </tfoot>
+</table>
